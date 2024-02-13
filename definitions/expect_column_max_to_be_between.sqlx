@@ -1,8 +1,0 @@
-config {
-    type: "view",
-    schema: "xxx",
-    name: "expect_column_max_to_be_between"
-}
-
-SELECT
-  1000 AS value
