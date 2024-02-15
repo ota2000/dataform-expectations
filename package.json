@@ -1,7 +1,7 @@
 {
   "name": "dataform-expectations",
   "dependencies": {
-    "@dataform/core": "2.8.3",
+    "@dataform/core": "2.9.0",
     "require-dir": "1.2.0"
   }
 }
