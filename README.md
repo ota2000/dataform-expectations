@@ -42,7 +42,7 @@ If you're interested in contributing to this project, please see CONTRIBUTING.md
 
 ## License
 
-This project is published under the MIT License. For more details, please see the LICENSE file.
+This project is published under the MIT License. For more details, please see the [LICENSE](https://github.com/ota2000/dataform-expectations/blob/main/LICENSE) file.
 
 ## Support
 
