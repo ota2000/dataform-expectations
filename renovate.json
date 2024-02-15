@@ -1,0 +1,6 @@
+{
+  "extends": ["config:base"],
+  "assignees": ["ota2000"],
+  "labels": ["dependencies", "renovate"],
+  "schedule": ["before 5am on monday"]
+}
