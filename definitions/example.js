@@ -38,3 +38,11 @@ expect_table_row_count_to_equal_other_table({
     schema: "xxx"
   }
 })
+
+expect_table_row_count_to_be_between({
+  source: {
+    name: "a1000",
+    schema: "xxx"
+  },
+  min_value: 1
+})

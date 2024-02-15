@@ -17,3 +17,8 @@ const expect_table_row_count_to_equal_other_table = require("./includes/expect_t
 exports.expect_table_row_count_to_equal_other_table = (params) => {
   expect_table_row_count_to_equal_other_table(params);
 }
+
+const expect_table_row_count_to_be_between = require("./includes/expect_table_row_count_to_be_between.js");
+exports.expect_table_row_count_to_be_between = (params) => {
+  expect_table_row_count_to_be_between(params);
+}
