@@ -1,24 +1,15 @@
-const expect_column_max_to_be_between = require("./includes/expect_column_max_to_be_between.js");
-exports.expect_column_max_to_be_between = (params) => {
-  expect_column_max_to_be_between(params);
-}
+const functions = [
+  "expect_column_max_to_be_between",
+  "expect_column_min_to_be_between",
+  "expect_table_row_count_to_equal",
+  "expect_table_row_count_to_equal_other_table",
+  "expect_table_row_count_to_be_between",
+];
 
-const expect_column_min_to_be_between = require("./includes/expect_column_min_to_be_between.js");
-exports.expect_column_min_to_be_between = (params) => {
-  expect_column_min_to_be_between(params);
-}
-
-const expect_table_row_count_to_equal = require("./includes/expect_table_row_count_to_equal.js");
-exports.expect_table_row_count_to_equal = (params) => {
-  expect_table_row_count_to_equal(params);
-}
-
-const expect_table_row_count_to_equal_other_table = require("./includes/expect_table_row_count_to_equal_other_table.js");
-exports.expect_table_row_count_to_equal_other_table = (params) => {
-  expect_table_row_count_to_equal_other_table(params);
-}
-
-const expect_table_row_count_to_be_between = require("./includes/expect_table_row_count_to_be_between.js");
-exports.expect_table_row_count_to_be_between = (params) => {
-  expect_table_row_count_to_be_between(params);
-}
+// オブジェクトをイテレートして、各検証関数を動的にインポートし、エクスポートする
+functions.forEach(functionName => {
+  const validationFunction = require(`./includes/${functionName}.js`);
+  exports[functionName] = (params) => {
+    validationFunction(params);
+  };
+});
