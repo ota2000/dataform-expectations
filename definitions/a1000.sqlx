@@ -1,0 +1,20 @@
+config {
+    type: "view",
+    schema: "xxx",
+    name: "a1000"
+}
+
+SELECT
+  1 AS value
+UNION ALL
+SELECT
+  10 AS value
+UNION ALL
+SELECT
+  100 AS value
+UNION ALL
+SELECT
+  1000 AS value
+UNION ALL
+SELECT
+  10000 AS value
