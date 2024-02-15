@@ -1,26 +1,34 @@
+/*
+Expect the column minimum to be between a minimum value and a maximum value.
+
+column (str): The column name
+min_value (comparable type or None): The minimal column minimum allowed.
+max_value (comparable type or None): The maximal column minimum allowed.
+strict_min (boolean): If True, the minimal column minimum must be strictly larger than min_value, default=False
+strict_max (boolean): If True, the maximal column minimum must be strictly smaller than max_value, default=False
+*/
 module.exports = (params) => {
   const {
-    source,
+    source = {},
     column,
     min_value = null,
     max_value = null,
     strict_min = false,
     strict_max = false,
-    parse_strings_as_datetimes = false,
-    output_strftime_format = null,
-    result_format = "BOOLEAN_ONLY",
-    include_config = false,
-    catch_exceptions = null,
-    meta = {}
   } = params;
 
-  let columnToCheck = column;
+  const min_operator = strict_min ? '>' : '>=';
+  const max_operator = strict_max ? '<' : '<=';
 
-  // Handle datetime parsing if necessary
-  if (parse_strings_as_datetimes) {
-    columnToCheck = `CAST(${column} AS TIMESTAMP)`;
-    if (min_value !== null) min_value = `TIMESTAMP '${min_value}'`;
-    if (max_value !== null) max_value = `TIMESTAMP '${max_value}'`;
+  let where_condition = "";
+  if (min_value !== null && max_value === null) {
+    where_condition = `t ${min_operator} ${min_value}}`;
+  } else if (min_value === null && max_value !== null) {
+    where_condition = `t ${max_operator} ${max_value}`;
+  } else if (min_value !== null && max_value !== null) {
+    where_condition = `t ${min_operator} ${min_value} OR t ${max_operator} ${max_value}`;
+  } else {
+    throw new Error('Invalid input: both min_value and max_value are null or input is not recognized.');
   }
 
   // Construct the SQL query
@@ -29,16 +37,13 @@ module.exports = (params) => {
       *
     FROM (
       SELECT
-        MIN(${columnToCheck}) AS columnToCheck
+        MIN(${column}) AS t
       FROM
-        ${ctx.ref(source)})
+        ${ctx.ref(source)} )
     WHERE
-      1 = 1
-      ${min_value !== null && max_value !== null ? `AND (columnToCheck ${strict_min ? "<" : "<="} ${min_value} OR columnToCheck ${strict_max ? ">" : ">="} ${max_value})` : ""}
-      ${min_value !== null && max_value === null ? `AND columnToCheck ${strict_min ? "<" : "<="} ${min_value}` : ""}
-      ${max_value !== null && min_value === null ? `AND columnToCheck ${strict_max ? ">" : ">="} ${max_value}` : ""}
+      ${where_condition}
   `;
 
   // Define and return the Dataform assertion
-  return assert("expect_column_min_to_be_between").query(sqlQuery);
+  return assert(`expect_column_min_to_be_between`).query(sqlQuery);
 };
