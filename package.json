@@ -1,6 +1,7 @@
 {
   "name": "dataform-expectations",
   "dependencies": {
-    "@dataform/core": "2.9.0"
+    "@dataform/core": "2.9.0",
+    "dataform-expectations": "https://github.com/ota2000/dataform-expectations/archive/refs/tags/0.0.1.tar.gz"
   }
 }
