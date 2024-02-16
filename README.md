@@ -20,6 +20,16 @@ If you would like to add support for other warehouses, please contact us at [Iss
 
 Add the package to your package.json file in your Dataform project. You can find the most up to package version on the [releases page](https://github.com/ota2000/dataform-expectations/releases).
 
+```json
+{
+  "name": "your-dataform-project",
+  "dependencies": {
+    "@dataform/core": "2.9.0",
+    "dataform-expectations": "https://github.com/ota2000/dataform-expectations/archive/refs/tags/0.0.1.tar.gz"
+  }
+}
+```
+
 ### Usage
 
 This section provides a basic example of how to use the dataform-expectations package in your Dataform projects to ensure your data meets specified quality checks.
@@ -41,6 +51,11 @@ expect_column_max_to_be_between({
 ```
 
 In this example, expect_column_max_to_be_between is used to assert that the maximum value of the value column in the source named table_a (with schema dataset_a) should be between 10 and 100.
+
+#### Return Behavior
+
+- **When Data Meets Expectations**: The expect function will not return anything. This behavior indicates that the data quality check has passed, and the data meets the specified quality expectations.
+- **When Data Does Not Meet Expectations**: The expect function will return only the results that do not meet the expectations. This return will include details about the data that failed the quality check, allowing for targeted investigation and remediation.
 
 For more detailed examples of each expect function provided by this package and how to use them, please refer to the files under /definitions. These examples demonstrate how the various expectations can be applied to effectively validate data within the Dataform framework.
 
