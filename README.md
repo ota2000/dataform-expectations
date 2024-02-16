@@ -20,6 +20,16 @@ If you would like to add support for other warehouses, please contact us at [Iss
 
 Add the package to your package.json file in your Dataform project. You can find the most up to package version on the [releases page](https://github.com/ota2000/dataform-expectations/releases).
 
+```json
+{
+  "name": "your-dataform-project",
+  "dependencies": {
+    "@dataform/core": "2.9.0",
+    "dataform-expectations": "https://github.com/ota2000/dataform-expectations/archive/refs/tags/0.0.1.tar.gz"
+  }
+}
+```
+
 ### Usage
 
 This section provides a basic example of how to use the dataform-expectations package in your Dataform projects to ensure your data meets specified quality checks.
