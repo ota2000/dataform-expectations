@@ -1,0 +1,6 @@
+{
+  "name": "dataform-expectations",
+  "dependencies": {
+    "@dataform/core": "2.9.0"
+  }
+}
