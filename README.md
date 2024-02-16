@@ -52,6 +52,11 @@ expect_column_max_to_be_between({
 
 In this example, expect_column_max_to_be_between is used to assert that the maximum value of the value column in the source named table_a (with schema dataset_a) should be between 10 and 100.
 
+#### Return Behavior
+
+- **When Data Meets Expectations**: If the maximum value of the specified column is within the defined range, the expect_column_max_to_be_between function will not return anything. This behavior indicates that the data quality check has passed, and the data meets the specified quality expectations.
+- **When Data Does Not Meet Expectations**: If the maximum value of the specified column is outside the defined range, the function will return only the results that do not meet the expectations. This return will include details about the data that failed the quality check, allowing for targeted investigation and remediation.
+
 For more detailed examples of each expect function provided by this package and how to use them, please refer to the files under /definitions. These examples demonstrate how the various expectations can be applied to effectively validate data within the Dataform framework.
 
 ## Available Tests
