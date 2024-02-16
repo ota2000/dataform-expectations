@@ -42,52 +42,52 @@ expect_column_max_to_be_between({
 
 In this example, expect_column_max_to_be_between is used to assert that the maximum value of the value column in the source named table_a (with schema dataset_a) should be between 10 and 100.
 
-For more detailed examples of each expect function provided by our package and how to use them, please see the examples in /definitions/example.js. These examples will guide you through the application of various expectations to validate your data effectively within your Dataform framework.
+For more detailed examples of each expect function provided by this package and how to use them, please refer to the files under /definitions. These examples demonstrate how the various expectations can be applied to effectively validate data within the Dataform framework.
 
 ## Available Tests
 
 ### Table shape
 
-- expect_column_to_exist
-- expect_table_column_count_to_equal
-- expect_table_row_count_to_be_between
-- expect_table_row_count_to_equal
-- expect_table_row_count_to_equal_other_table
+- [expect_column_to_exist](/definitions/examples/expect_column_to_exist.js)
+- [expect_table_column_count_to_equal](/definitions/examples/expect_table_column_count_to_equal.js)
+- [expect_table_row_count_to_be_between](/definitions/examples/expect_table_row_count_to_be_between.js)
+- [expect_table_row_count_to_equal](/definitions/examples/expect_table_row_count_to_equal.js)
+- [expect_table_row_count_to_equal_other_table](/definitions/examples/expect_table_row_count_to_equal_other_table.js)
 
 ### Missing values, unique values, and types
 
-- expect_column_values_to_be_null
-- expect_column_values_to_be_of_type
-- expect_column_values_to_not_be_null
+- [expect_column_values_to_be_null](/definitions/examples/expect_column_values_to_be_null.js)
+- [expect_column_values_to_be_of_type](/definitions/examples/expect_column_values_to_be_of_type.js)
+- [expect_column_values_to_not_be_null](/definitions/examples/expect_column_values_to_not_be_null.js)
 
 ### Sets and ranges
 
 ### String matching
 
-- expect_column_value_lengths_to_be_between
-- expect_column_value_lengths_to_equal
-- expect_column_values_to_match_regex
-- expect_column_values_to_not_match_regex
+- [expect_column_value_lengths_to_be_between](/definitions/examples/expect_column_value_lengths_to_be_between.js)
+- [expect_column_value_lengths_to_equal](/definitions/examples/expect_column_value_lengths_to_equal.js)
+- [expect_column_values_to_match_regex](/definitions/examples/expect_column_values_to_match_regex.js)
+- [expect_column_values_to_not_match_regex](/definitions/examples/expect_column_values_to_not_match_regex.js)
 
 ### Aggregate functions
 
-- expect_column_max_to_be_between
-- expect_column_min_to_be_between
-- expect_column_proportion_of_unique_values_to_be_between.js
+- [expect_column_max_to_be_between](/definitions/examples/expect_column_max_to_be_between.js)
+- [expect_column_min_to_be_between](/definitions/examples/expect_column_min_to_be_between.js)
+- [expect_column_proportion_of_unique_values_to_be_between](/definitions/examples/expect_column_proportion_of_unique_values_to_be_between.js)
 
 ### Multi-column
 
-- expect_compound_columns_to_be_unique
+- [expect_compound_columns_to_be_unique](/definitions/examples/expect_compound_columns_to_be_unique.js)
 
 ### Distributional functions
 
 ## Contributing
 
-If you're interested in contributing to this project, please see CONTRIBUTING.md.
+If you're interested in contributing to this project, please see [CONTRIBUTING.md](/CONTRIBUTING.md).
 
 ## License
 
-This project is published under the MIT License. For more details, please see the [LICENSE](https://github.com/ota2000/dataform-expectations/blob/main/LICENSE) file.
+This project is published under the MIT License. For more details, please see the [LICENSE](/LICENSE) file.
 
 ## Support
 
